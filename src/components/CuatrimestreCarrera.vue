@@ -21,7 +21,7 @@ export default {
   name: 'CuatrimestreCarrera',
   props: {
     nro: Number,
-    materias: Object
+    materias: Array
   },
   data () {
     return {

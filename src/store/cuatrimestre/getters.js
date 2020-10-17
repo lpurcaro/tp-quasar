@@ -12,10 +12,9 @@ export default {
     // let totalSemanas = cuatrimestreSeleccionado.fechaFin - cuatrimestreSeleccionado.fechaInicio
   },
   listadoCuatrimestres: (state) => {
-    if (state.cuatrimestes.length === 0) {
+    if (state.cuatrimestres.length === 0) {
       state.cuatrimestres = cuatrimestresData()
     }
-
     return state.cuatrimestres
   }
 }

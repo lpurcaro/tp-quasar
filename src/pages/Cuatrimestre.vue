@@ -1,16 +1,28 @@
 <template>
   <q-page>
-    <div>Cuatrimestre</div>
-    <CuatrimestreLista v-bind="listado"/>
+    <div class="row">
+      <div class="col-3">
+        <CuatrimestreLista v-bind:listado="listado" v-bind:actual="actual"/>
+      </div>
+      <div class="col-9">
+        <CuatrimestreData/>
+      </div>
+    </div>
   </q-page>
 </template>
 
 <script>
 import CuatrimestreLista from '../components/CuatrimestreLista'
+import CuatrimestreData from '../components/CuatrimestreData'
+
+import { SELECCIONAR_CUATRIMESTRE } from '../store/cuatrimestre/types'
 
 export default {
   name: 'Cuatrimestre',
-  components: { CuatrimestreLista },
+  components: {
+    CuatrimestreData,
+    CuatrimestreLista
+  },
   data () {
     return {
       seleccionado: {},
@@ -18,8 +30,14 @@ export default {
     }
   },
   mounted () {
-    this.seleccionado = '' // Traer los valores del getter, y pregaragar los contenidos con un servicio
-    this.listado = ''
+    this.seleccionado = {}
+    this.listado = this.$store.getters['cuatrimestre/listadoCuatrimestres']
+    this.$store.dispatch(`cuatrimestre/${SELECCIONAR_CUATRIMESTRE}`, this.listado.length - 1)
+  },
+  computed: {
+    actual: function () {
+      return this.$store.state.cuatrimestre.actual
+    }
   }
 }
 </script>

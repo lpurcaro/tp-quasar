@@ -2,7 +2,7 @@ import * as types from './types'
 
 export default {
   [types.AGREGAR_CUATRIMESTRE]: function (state, data) {
-    state.cuatrimestres[data.id] = data.info
+    state.cuatrimestres.push(data)
   },
   [types.ELIMINAR_CUATRIMESTRE]: function (state, data) {
     delete state.cuatrimestres[data.id]
@@ -12,5 +12,8 @@ export default {
   },
   [types.EDITAR_FECHA_FIN]: function (state, data) {
     state.cuatrimestres[data.id].fechaFin = data.fechaFin
+  },
+  [types.SELECCIONAR_CUATRIMESTRE]: function (state, data) {
+    state.actual = data
   }
 }

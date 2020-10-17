@@ -1,4 +1,4 @@
-export const AGREGAR_CUATRIMESTRE = 'agregarCuatrimestre'
+export const AGREGAR_CUATRIMESTRE = 'sagregarCuatrimestre'
 export const ELIMINAR_CUATRIMESTRE = 'eliminarCuatrimestre'
 export const EDITAR_FECHA_INICIO = 'editarFechaInicio'
 export const EDITAR_FECHA_FIN = 'editarFechaFin'
