@@ -14,8 +14,7 @@
           <q-btn icon="delete" label="Eliminar" stack color="cyan" class="q-ml-md" @click="deleteModal = true"/>
         </div>
       </div>
-      <MateriaCard v-for="materia in materias" :key="materia.id"/>
-      {{cuatrimestre}}
+      <MateriaLista v-bind:materias="materias"/>
 
       <!--    editar cuatrimestre-->
       <q-dialog v-model="editModal">
@@ -55,14 +54,14 @@
 </template>
 
 <script>
-import MateriaCard from './MateriaCard'
 import { EDITAR_CUATRIMESTRE, ELIMINAR_CUATRIMESTRE } from '../store/cuatrimestre/types'
 import { ELIMINAR_MATERIAS } from '../store/materia/types'
 import CuatrimestreEmpty from './CuatrimestreEmpty'
+import MateriaLista from './MateriaLista'
 
 export default {
   name: 'CuatrimestreData',
-  components: { CuatrimestreEmpty, MateriaCard },
+  components: { MateriaLista, CuatrimestreEmpty },
   props: {
     materias: Array,
     cuatrimestre: Object

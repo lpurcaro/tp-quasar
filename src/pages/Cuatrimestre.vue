@@ -37,7 +37,10 @@ export default {
       return this.$store.state.cuatrimestre.cuatrimestres.filter(cuatrimestre => cuatrimestre.id === this.actual)[0]
     },
     cuatrimestres: function () {
-      return this.$store.state.cuatrimestre.cuatrimestres
+      return this.$store.state.cuatrimestre.cuatrimestres.map(cuatrimestre => {
+        const materias = this.$store.state.materia.materias.filter(materia => materia.cuatrimestre === cuatrimestre.id).length
+        return { ...cuatrimestre, materias }
+      })
     },
     actual: function () {
       return this.$store.state.cuatrimestre.actual
