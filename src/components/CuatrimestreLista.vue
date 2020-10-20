@@ -7,10 +7,10 @@
         </q-item-section>
       </q-item>
       <q-item clickable
-              v-for="(cuatrimestre, idx) in listado"
+              v-for="(cuatrimestre) in cuatrimestres"
               :key="cuatrimestre.id"
               v-on:click="select(cuatrimestre.id)"
-              v-bind:active="idx === actual"
+              v-bind:active="cuatrimestre.id === actual"
               active-class="bg-teal-1 text-cyan">
         <q-item-section>
           <q-item-label>{{cuatrimestre.title}}</q-item-label>
@@ -21,7 +21,7 @@
           <q-badge color="cyan" :label="cuatrimestre.materias" />
         </q-item-section>
       </q-item>
-      <q-item clickable  @click="showModal = true">
+      <q-item clickable @click="showModal = true">
         <q-item-section>
           <q-item-label>Agregar nuevo Cuatrimestre</q-item-label>
         </q-item-section>
@@ -43,7 +43,7 @@
         </q-card-section>
 
         <q-card-actions align="right" class="text-primary">
-          <q-btn flat label="Cancelar" v-close-popup color="cyan"/>
+          <q-btn flat label="Cancelar" v-close-popup color="cyan" @click="cancel()"/>
           <q-btn flat label="Agregar" v-close-popup color="cyan" @click="add(formData)"/>
         </q-card-actions>
       </q-card>
@@ -56,15 +56,15 @@ import { AGREGAR_CUATRIMESTRE, SELECCIONAR_CUATRIMESTRE } from '../store/cuatrim
 
 export default {
   name: 'CuatrimestreLista',
+  props: {
+    cuatrimestres: Array,
+    actual: Number
+  },
   data () {
     return {
       showModal: false,
       formData: {}
     }
-  },
-  props: {
-    actual: Number,
-    listado: Array
   },
   methods: {
     select: function (id) {

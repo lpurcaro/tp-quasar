@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
+      <q-toolbar style="background-color: mediumpurple">
         <q-toolbar-title>
           Seguimiento Académico
         </q-toolbar-title>

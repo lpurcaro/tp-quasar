@@ -1,14 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import carrera from './carrera'
 import cuatrimestre from './cuatrimestre'
+import materia from './materia'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const vue = new Vuex.Store({
   modules: {
-    carrera,
-    cuatrimestre
+    cuatrimestre,
+    materia
   }
 })
+
+window.miapp = vue
+
+export default vue

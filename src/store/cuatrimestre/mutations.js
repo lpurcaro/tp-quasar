@@ -5,15 +5,17 @@ export default {
     state.cuatrimestres.push(data)
   },
   [types.ELIMINAR_CUATRIMESTRE]: function (state, data) {
-    delete state.cuatrimestres[data.id]
+    state.cuatrimestres.splice(data.idx, 1)
   },
-  [types.EDITAR_FECHA_INICIO]: function (state, data) {
-    state.cuatrimestres[data.id].fechaInicio = data.fechaInicio
-  },
-  [types.EDITAR_FECHA_FIN]: function (state, data) {
-    state.cuatrimestres[data.id].fechaFin = data.fechaFin
+  [types.EDITAR_CUATRIMESTRE]: function (state, { idx, data }) {
+    state.cuatrimestres[idx].fechaInicio = data.fechaInicio
+    state.cuatrimestres[idx].fechaFin = data.fechaFin
+    state.cuatrimestres[idx].title = data.title
   },
   [types.SELECCIONAR_CUATRIMESTRE]: function (state, data) {
     state.actual = data
+  },
+  [types.CARGAR_CUATRIMESTRES]: function (state, data) {
+    state.cuatrimestres = data
   }
 }

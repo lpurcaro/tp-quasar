@@ -1,0 +1,5 @@
+export const CURSANDO = 'Cursando'
+export const RECURSADO = 'Recursado'
+export const APROBADO = 'Aprobado'
+export const FINAL_PENDIENTE = 'Pendiente de Final'
+export const ABANDONADO = 'Abandonado'
