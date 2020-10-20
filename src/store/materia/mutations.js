@@ -5,6 +5,6 @@ export default {
     state.materias = data
   },
   [types.ELIMINAR_MATERIAS]: function (state, data) {
-    state.materias = state.materias.filter(materia => materia.cuatrimestre === data)
+    state.materias = state.materias.filter(materia => materia.cuatrimestre !== data)
   }
 }

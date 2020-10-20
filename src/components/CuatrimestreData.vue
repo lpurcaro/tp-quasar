@@ -84,8 +84,8 @@ export default {
     },
     eliminar: function () {
       this.deleteModal = false
-      this.$store.dispatch(`cuatrimestre/${ELIMINAR_CUATRIMESTRE}`)
       this.$store.dispatch(`materia/${ELIMINAR_MATERIAS}`, this.$store.state.cuatrimestre.actual)
+      this.$store.dispatch(`cuatrimestre/${ELIMINAR_CUATRIMESTRE}`)
     }
   }
 }
