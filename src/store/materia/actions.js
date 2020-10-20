@@ -9,5 +9,26 @@ export default {
   },
   [types.ELIMINAR_MATERIAS]: function ({ commit }, data) {
     commit(types.ELIMINAR_MATERIAS, data)
+  },
+  [types.ELIMINAR_MATERIA]: function ({ commit }, data) {
+    commit(types.ELIMINAR_MATERIA, data)
+  },
+  [types.AGREGAR_MATERIA]: function ({ commit, state }, { cuatrimestre, data }) {
+    const id = state.materias.length === 0 ? 0 : state.materias[state.materias.length - 1].id + 1
+
+    const materia = {
+      nombre: data.nombre,
+      cuatrimestre,
+      id,
+      horario: {
+        dia: data.dia,
+        horario: data.horario
+      },
+      docente: {
+        nombre: data.docente,
+        email: data.email
+      }
+    }
+    commit(types.AGREGAR_MATERIA, materia)
   }
 }

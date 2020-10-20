@@ -3,6 +3,7 @@ import * as Estado from '../enums/estadoMateria'
 export default [
   {
     cuatrimestre: 0,
+    id: 0,
     nombre: 'Organizacion Empresarial',
     horario: {
       dia: 'Lunes',
@@ -27,6 +28,7 @@ export default [
   },
   {
     cuatrimestre: 0,
+    id: 1,
     nombre: 'Matemática',
     horario: {
       dia: 'Jueves',
@@ -49,6 +51,7 @@ export default [
   },
   {
     cuatrimestre: 2,
+    id: 2,
     nombre: 'Nuevas Tecnologías 2',
     horario: {
       dia: 'Martes',

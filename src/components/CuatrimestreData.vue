@@ -4,7 +4,7 @@
       <CuatrimestreEmpty/>
     </div>
     <div v-else >
-      <div class="flex justify-between">
+      <div class="flex justify-between q-pb-lg">
         <div>
           <h2 class="text-cyan text-uppercase text-h4 no-margin">{{cuatrimestre.title}}</h2>
           <h3 class="text-grey-6 text-uppercase text-body2">{{cuatrimestre.fechaInicio}} al {{cuatrimestre.fechaFin}}</h3>
