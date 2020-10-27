@@ -30,5 +30,23 @@ export default {
       }
     }
     commit(types.AGREGAR_MATERIA, materia)
+  },
+  [types.EDITAR_MATERIA]: function ({ commit, state }, data) {
+    const idx = state.materias.findIndex(materia => materia.id === data.id)
+
+    const materia = {
+      ...state.materias[idx],
+      nombre: data.nombre,
+      horario: {
+        dia: data.dia,
+        horario: data.horario
+      },
+      docente: {
+        nombre: data.docente,
+        email: data.email
+      }
+    }
+    console.log('materia', materia, idx)
+    commit(types.EDITAR_MATERIA, { idx, materia })
   }
 }

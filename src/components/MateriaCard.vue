@@ -21,30 +21,8 @@
         </q-card-section>
 
         <q-card-section class="q-pt-none">
-          Acá van los campos para editar
+          <MateriaFormulario v-bind:model="edicion" v-bind:reset="reset" v-bind:agregar="editar"/>
         </q-card-section>
-
-        <q-card-actions align="right" class="text-primary">
-          <q-btn flat label="Cancelar" v-close-popup color="cyan" @click="editModal = false"/>
-          <q-btn flat label="Editar" v-close-popup color="cyan" @click="editar(edicion, materia.id)"/>
-        </q-card-actions>
-      </q-card>
-    </q-dialog>
-
-    <q-dialog v-model="createModal">
-      <q-card style="min-width: 350px">
-        <q-card-section>
-          <div class="text-h6 text-cyan text-uppercase">Editar Materia</div>
-        </q-card-section>
-
-        <q-card-section class="q-pt-none">
-          Acá ban los campos para editar
-        </q-card-section>
-
-        <q-card-actions align="right" class="text-primary">
-          <q-btn flat label="Cancelar" v-close-popup color="cyan" @click="editModal = false"/>
-          <q-btn flat label="Editar" v-close-popup color="cyan" @click="editar(edicion, materia.id)"/>
-        </q-card-actions>
       </q-card>
     </q-dialog>
 
@@ -66,30 +44,53 @@
 
 <script>
 import MateriaData from './MateriaData'
+import MateriaFormulario from './MateriaFormulario'
+import { EDITAR_MATERIA } from '../store/materia/types'
 
 export default {
   name: 'MateriaCard',
-  components: { MateriaData },
+  components: { MateriaFormulario, MateriaData },
   props: {
     materia: Object,
-    editar: Function,
-    crear: Function,
     eliminar: Function
   },
   data () {
     return {
       deleteModal: false,
       editModal: false,
-      createModal: false,
-      edicion: {},
-      nuevo: {}
+      edicion: {
+        id: '',
+        nombre: '',
+        docente: '',
+        email: '',
+        dia: '',
+        horario: ''
+      }
     }
   },
   mounted () {
+    this.edicion.id = this.materia.id
+    this.edicion.nombre = this.materia.nombre
     this.edicion.docente = this.materia.docente.nombre
     this.edicion.email = this.materia.docente.email
-    this.edicion.fecha = this.materia.horario.dia
+    this.edicion.dia = this.materia.horario.dia
     this.edicion.horario = this.materia.horario.horario
+  },
+  methods: {
+    reset: function () {
+      this.edicion = {
+        id: '',
+        nombre: '',
+        docente: '',
+        email: '',
+        dia: '',
+        horario: ''
+      }
+    },
+    editar: function () {
+      this.$store.dispatch(`materia/${EDITAR_MATERIA}`, this.edicion)
+      this.editModal = false
+    }
   }
 }
 </script>

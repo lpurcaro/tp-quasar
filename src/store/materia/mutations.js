@@ -12,5 +12,13 @@ export default {
   },
   [types.AGREGAR_MATERIA]: function (state, data) {
     state.materias.push(data)
+  },
+  [types.EDITAR_MATERIA]: function (state, { idx, materia }) {
+    state.materias[idx].cuatrimestre = materia.cuatrimestre
+    state.materias[idx].docente = materia.docente
+    state.materias[idx].nombre = materia.nombre
+    state.materias[idx].estado = materia.estado
+    state.materias[idx].horario = materia.horario
+    state.materias[idx].parciales = materia.parciales
   }
 }

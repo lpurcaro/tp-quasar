@@ -1,7 +1,7 @@
 <template>
   <div class="row q-col-gutter-md">
     <div class="col-sm-12 col-md-4" v-for="materia in materias" :key="materia.id">
-      <MateriaCard v-bind:materia="materia" v-bind:editar="editar" v-bind:eliminar="eliminar"/>
+      <MateriaCard v-bind:materia="materia" v-bind:eliminar="eliminar"/>
     </div>
     <div class="col-sm-12 col-md-4" >
       <q-card bordered class="my-card shadow-0 border text-center full-height flex flex-center">
@@ -51,9 +51,6 @@ export default {
     }
   },
   methods: {
-    editar: function (id) {
-      console.log('editar', id)
-    },
     eliminar: function (id) {
       this.$store.dispatch(`materia/${ELIMINAR_MATERIA}`, id)
     },
