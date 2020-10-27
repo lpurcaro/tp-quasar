@@ -46,7 +46,6 @@ export default {
         email: data.email
       }
     }
-    console.log('materia', materia, idx)
     commit(types.EDITAR_MATERIA, { idx, materia })
   }
 }

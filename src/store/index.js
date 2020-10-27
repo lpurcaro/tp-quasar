@@ -13,6 +13,4 @@ const vue = new Vuex.Store({
   }
 })
 
-window.miapp = vue
-
 export default vue
