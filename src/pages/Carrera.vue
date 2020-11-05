@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <div class="carreer-heading">
+    <div class="text-center">
       <h2 class="text-orange text-uppercase text-h4">{{nombre}}</h2>
       <h3 class="text-grey-6 text-uppercase text-body2">Duración: {{duracion}} años</h3>
     </div>
@@ -41,10 +41,6 @@ export default {
 </script>
 
 <style scoped>
-  .carreer-heading {
-    text-align: center;
-  }
-
   .my-card {
     width: 90%;
     margin: auto;

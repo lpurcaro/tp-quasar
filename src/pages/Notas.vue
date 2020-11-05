@@ -1,6 +1,6 @@
 <template>
-  <q-page class="flex flex-center">
-    <div>Notas</div>
+  <q-page>
+    <div class="text-h6 text-red text-uppercase">Proximamente tus notas...</div>
   </q-page>
 </template>
 
